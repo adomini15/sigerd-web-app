@@ -1,0 +1,54 @@
+<%- include('./partials/head.ejs') %>
+  <link rel="stylesheet" href="css/home.css">
+
+  <%- include('./partials/aside-menu.ejs') %>
+
+    <div class="container px-4 py-5 d-flex flex-column gap-3 p-2">
+      <h2 class="pb-2 border-bottom">Módulos Disponibles</h2>
+
+      <div class="jumbo-cards">
+        <div class="jumbo-card shadow-sm">
+          <div class="card-icon">
+            <i class="fas fa-pencil-alt"></i>
+          </div>
+          <div class="card-info">
+            <p class="card-title">inscribir estudiante</p>
+            <p class="card-subtitle">agregue y localize en curso a un estudiante</p>
+          </div>
+          <div class="card-link">
+            <a class="btn" href="http://localhost:3001/enroll-student">visitar</a>
+          </div>
+        </div>
+
+        <div class="jumbo-card shadow-sm">
+          <div class="card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="card-info">
+            <p class="card-title">relación estudiantes</p>
+            <p class="card-subtitle">visualice los estudiantes por sección</p>
+          </div>
+          <div class="card-link ">
+            <a class="btn" href="http://localhost:3001/roll">visitar</a>
+          </div>
+        </div>
+
+        <div class="jumbo-card shadow-sm">
+          <div class="card-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="card-info">
+            <p class="card-title">planeación académica</p>
+            <p class="card-subtitle">cree nuevos cursos</p>
+          </div>
+          <div class="card-link">
+            <a class="btn" href="/">visitar</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="js/main.js"></script>
+    <%- include('./partials/footer.ejs') %>

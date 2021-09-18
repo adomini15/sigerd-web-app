@@ -1,0 +1,76 @@
+<!-- Modal -->
+<div class="modal fade" id="printStudentModal" tabindex="-1" aria-labelledby="printStudentModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="printStudentModalLabel">Generación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="p-5 modal-body d-flex justify-content-center">
+        <form id="print-student-form" class="gap-4 pb-5 row col-md-10">
+
+          <div id="student-card" class="container-sm">
+            <header>
+              <div>
+                <div style="background-color: #0d6efd; color: white" class="p-3 pt-3 pb-2">
+                  <div class="d-flex justify-content-between">
+                    <p class="h6 fw-bold">Ficha Estudiante</p>
+                    <p><span class="fw-bold">Curso: </span><span id="course"></span></p>
+                  </div>
+                </div>
+
+                <figure class="w-100">
+                  <img class="m-3 mt-4 mb-4" height="70px" src="/img/sigerd.webp" alt="">
+                </figure>
+              </div>
+
+            </header>
+
+            <section>
+              <div class="d-flex flex-column align-items-center gap-3 mb-4">
+                <p class="h5 pb-3 mb-4 border-bottom w-100">Datos Estudiante</p>
+                <div class="w-75 d-flex">
+                  <p class="col-md-4 fw-bold">Nombre: </small>
+                  <p id="firstname" class="col-md-8 border-bottom border-2 text-muted">Gian Carlos Perez</p>
+                </div>
+
+                <div class="w-75 d-flex">
+                  <p class="col-md-4 fw-bold">Apellido: </small>
+                  <p id="lastname" class="col-md-8 border-bottom border-2 text-muted">Gian Carlos Perez</p>
+                </div>
+
+                <div class="w-75 d-flex">
+                  <p class="col-md-4 fw-bold">Edad: </small>
+                  <p id="age" class="col-md-8 border-bottom border-2 text-muted">15</p>
+                </div>
+
+                <div class="w-75 d-flex">
+                  <p class="col-md-4 fw-bold">Dirección: </small>
+                  <p id="address" class="col-md-8 border-bottom border-2 text-muted">15</p>
+                </div>
+
+                <div class="w-75 d-flex">
+                  <p class="col-md-4 fw-bold">Género: </small>
+                  <p id="gender" class="col-md-8 border-bottom border-2 text-muted">15</p>
+                </div>
+
+                <div class="w-75 d-flex">
+                  <p class="col-md-4 fw-bold">Declarado: </small>
+                  <p id="declared" class="col-md-8 border-bottom border-2 text-muted">15</p>
+                </div>
+
+              </div>
+
+            </section>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary" form="print-student-form" name="printAction">Descargar</button>
+      </div>
+    </div>
+  </div>
+</div>

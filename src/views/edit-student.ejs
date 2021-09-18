@@ -1,0 +1,63 @@
+<%- include('./partials/head.ejs') %>
+  <link rel="stylesheet" href="http://localhost:3001/css/edit-student.css">
+
+  <%- include('./partials/aside-menu.ejs') %>
+
+    <div class="container px-4 py-5 d-flex flex-column gap-3 p-2">
+      <div>
+        <h3 class="border-bottom pb-2 mb-5">Editar Estudiante</h3>
+        <form id="form-edit-student" class="gap-3 row pb-5 border-bottom" data-student-id="<%= student?._id %>">
+          <%- include('./partials/student-form.ejs') %>
+        </form>
+
+        <div id="parent-controls" class="d-flex gap-3 pt-5">
+
+          <div class="d-flex col-md-2">
+            <button data-parent-title="padre" class="w-100 btn btn-outline-secondary" data-bs-toggle="modal"
+              data-bs-target="#parentModal">Datos
+              Padre</button>
+          </div>
+
+          <div class="d-flex col-md-2">
+            <button data-parent-title="madre" class="w-100 btn btn-outline-secondary" data-bs-toggle="modal"
+              data-bs-target="#parentModal">Datos
+              Madre</button>
+          </div>
+
+          <div class="d-flex col-md-2">
+            <button data-parent-title="tutor" class="w-100 btn btn-outline-secondary" data-bs-toggle="modal"
+              data-bs-target="#parentModal">Datos
+              Tutor</button>
+          </div>
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="parentModal" tabindex="-1" aria-labelledby="parentModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="parentModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="p-5 modal-body d-flex justify-content-center">
+                <form id="parent-modal-form" class="gap-4 pb-5 row col-md-10" data-parent="">
+                  <%- include('./partials/parent-form.ejs') %>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary" form="parent-modal-form">Guardar Cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <script src="http://localhost:3001/js/edit-student.js"></script>
+    <%- include('./partials/footer.ejs') %>

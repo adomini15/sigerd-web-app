@@ -1,0 +1,22 @@
+<%- include('./partials/head.ejs') %>
+  <link rel="stylesheet" href="http://localhost:3001/css/create-student.css">
+
+  <%- include('./partials/aside-menu.ejs') %>
+
+    <div class="container px-4 py-5 d-flex flex-column gap-3 p-2">
+      <div>
+        <h3 class="border-bottom pb-2 mb-5">Nuevo Estudiante</h3>
+        <form id="form-create-student" class="gap-3 row pb-5 border-bottom">
+
+          <%- include('./partials/student-form.ejs') %>
+
+
+        </form>
+
+
+
+      </div>
+    </div>
+
+    <script src="http://localhost:3001/js/create-student.js"></script>
+    <%- include('./partials/footer.ejs') %>

@@ -1,0 +1,28 @@
+.login-container {
+  max-width: 400px;
+  height: 100vh;
+}
+
+/* Handle Errors */
+.email-err, .password-err {
+  display: none;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+}
+
+#menu {
+  height: 100vh;
+  min-width: 280px;
+}
+
+
+#menu .nav-link {
+  background-color: #0d6efd;
+  cursor: pointer;
+  color: white;
+}
+
+

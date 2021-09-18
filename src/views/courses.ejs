@@ -1,0 +1,63 @@
+<%- include('./partials/head.ejs') %>
+  <link rel="stylesheet" href="css/courses.css">
+
+  <%- include('./partials/aside-menu.ejs') %>
+
+
+    <div class="container px-4 py-5 d-flex flex-column gap-3 p-2">
+      <h3 class="border-bottom pb-2">Cursos Disponibles</h3>
+      <div>
+        <div class="controls p-5">
+          <h5 class="border-bottom pb-3">Filtro & Eventos</h5>
+          <div class="actions">
+            <div class="dropdown">
+              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Acciones
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="disabled dropdown-item d-flex justify-content-between" data-option="delete"
+                    href="#">Liberar <span class="badge bg-primary">0</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="courses" class="row row-cols-1 row-cols-md-4 g-4">
+          <% for(let course of courses) { %>
+            <div class="col">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= course.name %>
+                  </h5>
+                  <small class="card-subtitle mb-2 text-muted">
+                    <div class="fw-bold">Última actualización:</div>
+                    <%= course.updatedAt ? new Date(course.updatedAt).toLocaleString() : 'Sin información' %>
+                  </small>
+
+                  <div class="mt-4 d-flex justify-content-end gap-3">
+                    <div>
+                      <input type="checkbox" class="btn-check" id="<%= course.name %>" data-delete="<%= course.name %>"
+                        autocomplete="off">
+                      <label class="btn btn-outline-danger" for="<%= course.name %>"><i class="fa fa-trash"></i></label>
+                    </div>
+                    <a class="btn btn-outline-secondary"
+                      href="http://localhost:3001/courses/<%= course.name %>/edit"><span
+                        class="fas fa-file-alt"></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% } %>
+        </div>
+
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="js/courses.js"></script>
+    <%- include('./partials/footer.ejs') %>

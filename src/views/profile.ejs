@@ -1,0 +1,61 @@
+<%- include('./partials/head.ejs') %>
+  <link rel="stylesheet" href="css/profile.css">
+
+  <%- include('./partials/aside-menu.ejs') %>
+
+    <div class="container px-4 py-5 d-flex flex-column gap-3 p-2">
+      <div>
+        <h3 class="border-bottom pb-2 mb-5">Perfil</h3>
+        <form id="form-profile" class="gap-3 row" data-user="<%= user %>">
+
+          <div class="form-group d-flex flex-row w-100 gap-3">
+            <div class="form-floating col-md-4">
+              <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Nombre">
+              <label for="floatingInput">Nombre</label>
+
+              <div class="alert alert-danger mt-2 d-none" role="alert">
+              </div>
+            </div>
+
+            <div class="form-floating col-md-4">
+              <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Apellido">
+              <label for="floatingInput">Apellido</label>
+
+              <div class="alert alert-danger mt-2 d-none" role="alert">
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="form-group d-flex flex-row w-100 gap-3">
+            <div class="form-floating col-md-8">
+              <input type="date" name="birth" id="birth" class="form-control" placeholder="Fecha de Nacimiento">
+              <label for="floatingInput">Fecha de Nacimiento</label>
+
+              <div class="alert alert-danger mt-2 d-none" role="alert">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group d-flex flex-row w-100 gap-3">
+            <div class="form-floating col-md-8">
+              <input type="text" name="dni" id="dni" class="form-control" placeholder="Cédula de Identidad">
+              <label for="floatingInput">Cédula de Identidad</label>
+
+              <div class="alert alert-danger mt-2 d-none" role="alert">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="d-flex">
+            <button class="w-25 btn btn-outline-primary" type="submit">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+    <%- include('./partials/footer.ejs') %>
