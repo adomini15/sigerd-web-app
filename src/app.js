@@ -1,6 +1,6 @@
 // imports
 import dotenv from 'dotenv';
-import fetch  from 'node-fetch';
+import fetch from 'node-fetch';
 import express from 'express'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
@@ -32,23 +32,27 @@ app.use(morgan('dev'))
 // routes
 
 app.get('/', login, (req, res) => {
-  res.render('index', { title: 'Home'})
+  res.render('index', { title: 'Home' })
 })
 
-app.get('/login' , (req, res) => {
-  res.render('login', {title: 'Login'})
+app.get('/signup', (req, res) => {
+  res.render('signup', { title: 'Signup' })
+})
+
+app.get('/login', (req, res) => {
+  res.render('login', { title: 'Login' })
 })
 
 app.get('/profile', login, (req, res) => {
-  res.render('profile', {title: 'profile'})
+  res.render('profile', { title: 'profile' })
 })
 
 app.get('/enroll-student', login, (req, res) => {
-  res.render('enroll-student', {title: 'Enroll Student'})
+  res.render('enroll-student', { title: 'Enroll Student' })
 })
 
 app.get('/student/create', login, (req, res) => {
-  res.render('create-student', {title: 'New Student', student: null})
+  res.render('create-student', { title: 'New Student', student: null })
 })
 
 app.get('/student/:id/edit', login, async (req, res) => {
@@ -57,16 +61,16 @@ app.get('/student/:id/edit', login, async (req, res) => {
   try {
     const response = await fetch(endpoint)
     const student = await response.json()
-  
-    if(student._id) {
-      res.render('edit-student', {title: 'Edit Student', student})
+
+    if (student._id) {
+      res.render('edit-student', { title: 'Edit Student', student })
     } else {
       res.redirect("http://localhost:3001/")
     }
   } catch (error) {
     console.log(error)
   }
-  
+
 })
 
 app.get('/roll', login, async (req, res) => {
@@ -75,10 +79,10 @@ app.get('/roll', login, async (req, res) => {
   try {
     const response = await fetch(endpoint)
     const courses = await response.json()
-  
-    if(courses) {
-      res.render('roll', {title: 'Student Relationship', courses})
-    } 
+
+    if (courses) {
+      res.render('roll', { title: 'Student Relationship', courses })
+    }
   } catch (error) {
     console.log(error)
   }
@@ -90,10 +94,10 @@ app.get('/courses', login, async (req, res) => {
   try {
     const response = await fetch(endpoint)
     const courses = await response.json()
-  
-    if(courses) {
-      res.render('courses', {title: 'Courses', courses})
-    } 
+
+    if (courses) {
+      res.render('courses', { title: 'Courses', courses })
+    }
   } catch (error) {
     console.log(error)
   }

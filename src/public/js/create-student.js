@@ -1,7 +1,7 @@
 // Get form
 const formCreateStudent = document.getElementById('form-create-student');
 
- // manage error 
+// manage error 
 let openedAlerts = [];
 
 // Handle submit of form
@@ -35,10 +35,10 @@ formCreateStudent.addEventListener('submit', async function (ev) {
 
     // Handle create student method
     const feedback = await createStudent(student)
-    
+
     // Fill alerts with posible errors
-    if(feedback.errors) {
-      for(let err of Object.entries(feedback.errors)) {
+    if (feedback.errors) {
+      for (let err of Object.entries(feedback.errors)) {
         const alert = this.querySelector(`#${err[0]} ~ .alert`)
         alert.classList.remove('d-none')
         alert.textContent = err[1]
@@ -46,10 +46,10 @@ formCreateStudent.addEventListener('submit', async function (ev) {
       }
     }
 
-    if(feedback.student) {
-      window.location.href = 'http://localhost:3001/enroll-student'
+    if (feedback.student) {
+      window.location.href = '/enroll-student'
     }
-    
+
 
   } catch (err) {
     console.log(err)
@@ -64,7 +64,7 @@ async function createStudent(student) {
       method: 'POST',
       body: JSON.stringify(student),
       headers: {
-        'Content-Type' : 'application/json'
+        'Content-Type': 'application/json'
       }
     })
 
@@ -72,7 +72,7 @@ async function createStudent(student) {
 
     return data;
 
-  } catch(err) {
+  } catch (err) {
     throw err;
   }
 }

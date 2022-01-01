@@ -2,11 +2,11 @@ const controls = document.querySelector('.controls')
 const courses = document.querySelector('#courses')
 const selectedCourses = new Set()
 
-courses.addEventListener('click', function(ev) {
+courses.addEventListener('click', function (ev) {
 
-  if(ev.target.dataset.delete) {
+  if (ev.target.dataset.delete) {
 
-    if(ev.target.checked) {
+    if (ev.target.checked) {
       selectedCourses.add(ev.target.dataset.delete)
     } else {
       selectedCourses.delete(ev.target.dataset.delete)
@@ -15,7 +15,7 @@ courses.addEventListener('click', function(ev) {
     // populate badge of delete option  
     controls.querySelector('[data-option="delete"] .badge').textContent = selectedCourses.size;
 
-    if(selectedCourses.size) {
+    if (selectedCourses.size) {
       controls.querySelector('[data-option="delete"]').classList.remove('disabled')
     } else {
       controls.querySelector('[data-option="delete"]').classList.add('disabled')
@@ -27,12 +27,12 @@ courses.addEventListener('click', function(ev) {
 controls.addEventListener('click', async function (ev) {
   const target = ev.target;
 
- 
-  if(target.closest('.actions')) {
 
-    switch(target.dataset.option) {
-      case 'delete': 
-        for (let selectedCourse of selectedCourses) {   
+  if (target.closest('.actions')) {
+
+    switch (target.dataset.option) {
+      case 'delete':
+        for (let selectedCourse of selectedCourses) {
           try {
             const feedback = await deleteCourseByName(selectedCourse)
 
@@ -40,8 +40,8 @@ controls.addEventListener('click', async function (ev) {
             console.log(error)
           }
         }
-        
-        window.location.href = "http://localhost:3001/courses"
+
+        window.location.href = "/courses"
 
         break;
 
@@ -49,7 +49,7 @@ controls.addEventListener('click', async function (ev) {
         break;
     }
   }
-  
+
 })
 
 async function deleteCourseByName(name) {

@@ -11,7 +11,7 @@ const identitySelection = currentSelection.querySelector('.identity')
 
 // populate Course select
 getCourses().then((courses) => {
-  for(let course of courses) {
+  for (let course of courses) {
     // create option
     const opt = document.createElement('option')
     opt.value = course['name'];
@@ -51,7 +51,7 @@ var substringMatcher = function (strs) {
 getStudents().then((students) => {
   students = students.filter((student) => !student.course).map((student) => {
     const value = `${student.firstname} ${student.lastname}`
-    return { ...student, value}
+    return { ...student, value }
   })
 
 
@@ -60,18 +60,18 @@ getStudents().then((students) => {
     display: 'value',
     source: substringMatcher(students),
     templates: {
-      empty: 
+      empty:
         `<div class="empty-message text-muted pt-3">
           No se ha encontrado ninguna coincidencia.
         </div>`,
-      suggestion: function(student) {
+      suggestion: function (student) {
         const currentSelectedId = document.querySelector('#current-selection .identity')
         const match = currentSelectedId?.textContent.includes(student._id)
 
         return `<a href="#" class="list-group-item list-group-item-action flex-column align-items-start ${match && 'active'}">
         <div class="d-flex w-100 justify-content-between">
           <h6 class="fullname mb-1">${student.value}</h6>
-          <small>Agregado en fecha ${student.createdAt.split('T')[0].replaceAll('-','/')}</small>
+          <small>Agregado en fecha ${student.createdAt.split('T')[0].replaceAll('-', '/')}</small>
         </div>
         <p class="mb-1">${student.address}.</p>
         <small class="identity badge rounded-pill bg-dark">${student._id}</small>
@@ -85,18 +85,18 @@ getStudents().then((students) => {
 
   $('.tt-dataset-students').on('click', function (e) {
     e.preventDefault()
-    const listItem  = e.target.closest('a');
+    const listItem = e.target.closest('a');
 
-    if(listItem) {
+    if (listItem) {
 
       currentSelection.dataset.id = listItem.querySelector('.identity')?.textContent;
       fullnameSelection.innerHTML = listItem.querySelector('.fullname')?.textContent;
       identitySelection.innerHTML = listItem.querySelector('.identity')?.textContent;
 
       currentSelection.classList.remove('d-none');
-      
+
     }
-   
+
   })
 }).catch((err) => console.log(err))
 
@@ -110,20 +110,20 @@ formProfile.addEventListener('submit', async function (ev) {
   const btnSubmit = this.querySelector('#submit')
   try {
 
-    if(coursesSelect.value.trim() && currentSelection.dataset.id.trim()) {
+    if (coursesSelect.value.trim() && currentSelection.dataset.id.trim()) {
       btnSubmit.classList.remove('btn-outline-danger')
 
       // Enroll student
       const feedback = await enrollStudent(coursesSelect.value, currentSelection.dataset.id.trim())
 
-      if(feedback.students) {
-        window.location.href = "http://localhost:3001/"
+      if (feedback.students) {
+        window.location.href = "/"
       }
     } else {
       btnSubmit.classList.add('btn-outline-danger')
     }
 
- 
+
 
   } catch (err) {
     console.log(err)
@@ -142,7 +142,7 @@ async function getCourses() {
 
     return data;
 
-  } catch(err) {
+  } catch (err) {
     throw err;
   }
 }
@@ -159,7 +159,7 @@ async function getStudents() {
 
     return data;
 
-  } catch(err) {
+  } catch (err) {
     throw err;
   }
 }
@@ -176,7 +176,7 @@ async function enrollStudent(courseId, studentId) {
 
     return data;
 
-  } catch(err) {
+  } catch (err) {
     throw err;
   }
 }

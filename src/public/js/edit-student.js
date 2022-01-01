@@ -1,7 +1,7 @@
 // Get form
 const formEditStudent = document.getElementById('form-edit-student');
 
- // manage error 
+// manage error 
 let openedAlertsStudent = [];
 
 // Handle submit of form
@@ -36,10 +36,10 @@ formEditStudent.addEventListener('submit', async function (ev) {
     // Handle update student method
 
     const feedback = await updateStudent(student, this.dataset.studentId)
-    
+
     // Fill alerts with posible errors
-    if(feedback.errors) {
-      for(let err of Object.entries(feedback.errors)) {
+    if (feedback.errors) {
+      for (let err of Object.entries(feedback.errors)) {
         const alert = this.querySelector(`#${err[0]} ~ .alert`)
         alert.classList.remove('d-none')
         alert.textContent = err[1]
@@ -47,10 +47,10 @@ formEditStudent.addEventListener('submit', async function (ev) {
       }
     }
 
-    if(feedback.student) {
-      window.location.href = 'http://localhost:3001/enroll-student'
+    if (feedback.student) {
+      window.location.href = '/enroll-student'
     }
-    
+
 
   } catch (err) {
     console.log(err)
@@ -65,7 +65,7 @@ async function updateStudent(student, id) {
       method: 'PUT',
       body: JSON.stringify(student),
       headers: {
-        'Content-Type' : 'application/json'
+        'Content-Type': 'application/json'
       }
     })
 
@@ -73,7 +73,7 @@ async function updateStudent(student, id) {
 
     return data;
 
-  } catch(err) {
+  } catch (err) {
     throw err;
   }
 }
@@ -94,15 +94,15 @@ const traduction = {
   tutor: 'tutor'
 }
 
-parentControls.addEventListener('click', async function(ev) {
+parentControls.addEventListener('click', async function (ev) {
   try {
-    if(ev.target.dataset?.parentTitle) {
+    if (ev.target.dataset?.parentTitle) {
       const btn = ev.target;
-      
+
       // inputs
 
       const parentInputs = {
-        firstname:  parentForm.firstname,
+        firstname: parentForm.firstname,
         lastname: parentForm.lastname,
         age: parentForm.age,
         dni: parentForm.dni,
@@ -115,7 +115,7 @@ parentControls.addEventListener('click', async function(ev) {
         job: parentForm.job,
         tel_job: parentForm.jobtel
       }
-  
+
       const modalTitle = document.getElementById('parentModalLabel')
       modalTitle.textContent = `Editar ${capitalize(btn.dataset.parentTitle)}`;
 
@@ -123,22 +123,22 @@ parentControls.addEventListener('click', async function(ev) {
       const parents = await getParent(formEditStudent.dataset.studentId, traduction[btn.dataset.parentTitle])
 
 
-      if(parents) {
+      if (parents) {
         parentInputs.firstname.value = parents.firstname ?? '';
         parentInputs.lastname.value = parents.lastname ?? '';
         parentInputs.age.value = parents.age ?? '';
         parentInputs.dni.value = parents.dni ?? '';
 
-        if(parents.gender == 'M') {  
-          parentInputs.gender[0].checked = true; 
+        if (parents.gender == 'M') {
+          parentInputs.gender[0].checked = true;
         } else if (parents.gender == 'F') {
-          parentInputs.gender[1].checked = true; 
+          parentInputs.gender[1].checked = true;
         }
 
-        if(parents.declared == 'Y') {  
-          parentInputs.declared.checked = true; 
+        if (parents.declared == 'Y') {
+          parentInputs.declared.checked = true;
         } else if (parents.declared == 'N') {
-          parentInputs.declared.checked = false; 
+          parentInputs.declared.checked = false;
         }
 
 
@@ -148,59 +148,59 @@ parentControls.addEventListener('click', async function(ev) {
         parentInputs.grade.value = parents.grade ?? '';
         parentInputs.job.value = parents.job ?? '';
         parentInputs.tel_job.value = parents.job_tel ?? '';
-  
-      }
-      
 
-    } 
+      }
+
+
+    }
   } catch (err) {
     console.log(err)
   }
 })
 
 
-parentForm.addEventListener('submit', async function(ev) {
+parentForm.addEventListener('submit', async function (ev) {
   ev.preventDefault()
 
   try {
 
-      // To hide posible opened alerts
-      openedAlertsParent.forEach((alert) => alert.classList.add('d-none'))
+    // To hide posible opened alerts
+    openedAlertsParent.forEach((alert) => alert.classList.add('d-none'))
 
-      // Create object with parent data properties
-      const parent = {
-        firstname:  this.firstname.value,
-        lastname: this.lastname.value,
-        age: +this.age.value,
-        dni: this.dni.value,
-        gender: this.gender.value,
-        address: this.address.value,
-        declared: this.declared.checked ? 'Y' : 'N',
-        nationality: this.nationality.value,
-        tel: this.tel.value,
-        grade: this.grade.value,
-        job: this.job.value,
-        tel_job: this.jobtel.value
+    // Create object with parent data properties
+    const parent = {
+      firstname: this.firstname.value,
+      lastname: this.lastname.value,
+      age: +this.age.value,
+      dni: this.dni.value,
+      gender: this.gender.value,
+      address: this.address.value,
+      declared: this.declared.checked ? 'Y' : 'N',
+      nationality: this.nationality.value,
+      tel: this.tel.value,
+      grade: this.grade.value,
+      job: this.job.value,
+      tel_job: this.jobtel.value
+    }
+
+    const feedback = await updateParent(formEditStudent.dataset.studentId, parent, traduction[this.dataset.parent])
+
+    // Fill alerts with posible errors
+    if (feedback.errors) {
+      for (let err of Object.entries(feedback.errors)) {
+        const alert = this.querySelector(`#${err[0]} ~ .alert`)
+        alert.classList.remove('d-none')
+        alert.textContent = err[1]
+        openedAlertsStudent.push(alert)
       }
+    }
 
-      const feedback = await updateParent(formEditStudent.dataset.studentId, parent, traduction[this.dataset.parent])
+    if (feedback._id) {
+      // window.location.href = 'http://localhost:3001/enroll-student'
+    }
 
-      // Fill alerts with posible errors
-      if(feedback.errors) {
-        for(let err of Object.entries(feedback.errors)) {
-          const alert = this.querySelector(`#${err[0]} ~ .alert`)
-          alert.classList.remove('d-none')
-          alert.textContent = err[1]
-          openedAlertsStudent.push(alert)
-        }
-      }
-
-      if(feedback._id) {
-        // window.location.href = 'http://localhost:3001/enroll-student'
-      }
-
-      console.log(feedback)
-  } catch(err) {  
+    console.log(feedback)
+  } catch (err) {
     console.log(err)
   }
 })
@@ -218,9 +218,9 @@ async function getParent(studentId, parentPath) {
 
     return data;
 
-  } catch(err) {
+  } catch (err) {
     throw err;
-  } 
+  }
 }
 
 async function updateParent(studentId, parentInfo, parentPath) {
@@ -230,7 +230,7 @@ async function updateParent(studentId, parentInfo, parentPath) {
       method: 'PUT',
       body: JSON.stringify(parentInfo),
       headers: {
-        'Content-Type' : 'application/json'
+        'Content-Type': 'application/json'
       }
     })
 
@@ -238,12 +238,12 @@ async function updateParent(studentId, parentInfo, parentPath) {
 
     return data;
 
-  } catch(err) {
+  } catch (err) {
     throw err;
-  } 
+  }
 }
 
 function capitalize(str) {
   return str[0].toUpperCase() +
-  str.substr(1);
+    str.substr(1);
 }
