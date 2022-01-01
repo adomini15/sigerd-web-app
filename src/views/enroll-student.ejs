@@ -9,6 +9,8 @@
         <form id="form-profile" class="gap-3 row pb-5 border-bottom" data-user="<%= user %>">
 
           <div class="form-group d-flex flex-row w-100 gap-3 justify-content-between">
+
+            <label for="student"><b>Filtre estudiante *</b></label>
             <div class="d-flex flex-row gap-3 col-md-6">
               <div id="custom-templates" class="form-floating col-md-3">
                 <input type="text" class="form-control typeahead" name="student" id="student"
@@ -23,6 +25,8 @@
               </div>
             </div>
 
+
+            <label for="courses"><b>Curso de inscripción *</b></label>
             <div class="form-floating col-md-4">
               <select name="courses" id="courses" class="form-control">
                 <option selected value="">---------</option>
@@ -32,6 +36,7 @@
               <div class="alert alert-danger mt-2 d-none" role="alert">
               </div>
             </div>
+
 
           </div>
 
