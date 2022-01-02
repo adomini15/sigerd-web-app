@@ -24,7 +24,7 @@ form.addEventListener("submit", async function (ev) {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			credentials: "include",
+			credentials: "same-origin",
 		});
 
 		const data = await res.json();
