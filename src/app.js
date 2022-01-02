@@ -58,7 +58,11 @@ app.get("/student/:id/edit", login, async (req, res) => {
 	const endpoint = `https://sigerd-api.herokuapp.com/students/${req.params.id}`;
 
 	try {
-		const response = await fetch(endpoint);
+		const response = await fetch(endpoint, {
+			headers: {
+				Authorization: `Bearer ${req.cookies.jwt}`,
+			},
+		});
 		const student = await response.json();
 
 		if (student._id) {
@@ -75,7 +79,11 @@ app.get("/roll", login, async (req, res) => {
 	const endpoint = `https://sigerd-api.herokuapp.com/courses`;
 
 	try {
-		const response = await fetch(endpoint);
+		const response = await fetch(endpoint, {
+			headers: {
+				Authorization: `Bearer ${req.cookies.jwt}`,
+			},
+		});
 		const courses = await response.json();
 
 		if (courses) {
@@ -90,7 +98,11 @@ app.get("/courses", login, async (req, res) => {
 	const endpoint = `https://sigerd-api.herokuapp.com/courses`;
 
 	try {
-		const response = await fetch(endpoint);
+		const response = await fetch(endpoint, {
+			headers: {
+				Authorization: `Bearer ${req.cookies.jwt}`,
+			},
+		});
 		const courses = await response.json();
 
 		if (courses) {

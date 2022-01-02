@@ -62,6 +62,7 @@ async function createStudent(student) {
 			body: JSON.stringify(student),
 			headers: {
 				"Content-Type": "application/json",
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
 			},
 		});
 

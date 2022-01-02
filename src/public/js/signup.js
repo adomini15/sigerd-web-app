@@ -23,6 +23,7 @@ form.addEventListener("submit", async function (ev) {
 			}),
 			headers: {
 				"Content-Type": "application/json",
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
 			},
 			credentials: "include",
 		});

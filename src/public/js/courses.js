@@ -56,6 +56,9 @@ async function deleteCourseByName(name) {
 	try {
 		const res = await fetch(endpoint, {
 			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+			},
 		});
 
 		const data = await res.json();

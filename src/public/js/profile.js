@@ -51,6 +51,9 @@ async function getProfileByUserId(userId) {
 	try {
 		const res = await fetch(endpoint, {
 			method: "GET",
+			headers: {
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+			},
 		});
 
 		return res.json();
@@ -73,6 +76,7 @@ async function updateProfileByUserId(userId) {
 			}),
 			headers: {
 				"Content-Type": "application/json",
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
 			},
 		});
 

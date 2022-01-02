@@ -142,6 +142,9 @@ async function getCourses() {
 	try {
 		const res = await fetch(endpoint, {
 			method: "GET",
+			headers: {
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+			},
 		});
 
 		const data = await res.json();
@@ -158,6 +161,9 @@ async function getStudents() {
 	try {
 		const res = await fetch(endpoint, {
 			method: "GET",
+			headers: {
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+			},
 		});
 
 		const data = await res.json();
@@ -174,6 +180,9 @@ async function enrollStudent(courseId, studentId) {
 	try {
 		const res = await fetch(endpoint, {
 			method: "POST",
+			headers: {
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+			},
 		});
 
 		const data = await res.json();

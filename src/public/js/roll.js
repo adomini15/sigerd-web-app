@@ -164,6 +164,9 @@ async function deEnrollStudentByCourse(courseName, studentId) {
 	try {
 		const res = await fetch(endpoint, {
 			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+			},
 		});
 
 		const data = await res.json();
@@ -179,6 +182,9 @@ async function getStudentsByCourse(courseName) {
 	try {
 		const res = await fetch(endpoint, {
 			method: "GET",
+			headers: {
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+			},
 		});
 
 		const data = await res.json();

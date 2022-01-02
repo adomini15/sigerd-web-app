@@ -63,6 +63,7 @@ async function updateStudent(student, id) {
 			body: JSON.stringify(student),
 			headers: {
 				"Content-Type": "application/json",
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
 			},
 		});
 
@@ -208,6 +209,9 @@ async function getParent(studentId, parentPath) {
 	try {
 		const res = await fetch(endpoint, {
 			method: "GET",
+			headers: {
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+			},
 		});
 
 		const data = await res.json();
@@ -226,6 +230,7 @@ async function updateParent(studentId, parentInfo, parentPath) {
 			body: JSON.stringify(parentInfo),
 			headers: {
 				"Content-Type": "application/json",
+				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
 			},
 		});
 

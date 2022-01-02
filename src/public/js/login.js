@@ -24,7 +24,7 @@ form.addEventListener("submit", async function (ev) {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			credentials: "include",
+			// credentials: "include",
 			mode: "cors",
 		});
 
@@ -43,6 +43,7 @@ form.addEventListener("submit", async function (ev) {
 			}
 		} else {
 			// Redirect to Home
+			document.cookie = `jwt=${data.token}`;
 			window.location.href = "/";
 		}
 	} catch (error) {

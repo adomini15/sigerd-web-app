@@ -9,12 +9,14 @@ logoutLink.addEventListener("click", async function (ev) {
 	const endpoint = "https://sigerd-api.herokuapp.com/logout";
 
 	try {
-		const res = await fetch(endpoint, {
-			method: "GET",
-			credentials: "include",
-		});
+		// const res = await fetch(endpoint, {
+		// 	method: "GET",
+		// 	credentials: "include",
+		// });
 
-		const data = await res.json();
+		// const data = await res.json();
+
+		document.cookie = "";
 
 		if (data.ok) {
 			window.location.href = "/login";
