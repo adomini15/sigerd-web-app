@@ -6,7 +6,7 @@ logoutLink.addEventListener("click", async function (ev) {
 	ev.preventDefault();
 	ev.stopPropagation();
 
-	const endpoint = "https://sigerd-api.herokuapp.com/logout";
+	// const endpoint = "https://sigerd-api.herokuapp.com/logout";
 
 	try {
 		// const res = await fetch(endpoint, {
@@ -18,9 +18,9 @@ logoutLink.addEventListener("click", async function (ev) {
 
 		document.cookie = "";
 
-		if (data.ok) {
-			window.location.href = "/login";
-		}
+		// if (data.ok) {
+		window.location.href = "/login";
+		// }
 	} catch (err) {
 		console.log(err);
 	}
