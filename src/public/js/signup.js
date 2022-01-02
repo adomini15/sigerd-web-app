@@ -22,10 +22,10 @@ form.addEventListener("submit", async function (ev) {
 				password,
 			}),
 			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${document.cookie.split("=")[1]}`,
+				"Content-Type": "application/json"
 			},
-			credentials: "include",
+			// credentials: "include",
+			mode: 'cors'
 		});
 
 		const data = await res.json();
