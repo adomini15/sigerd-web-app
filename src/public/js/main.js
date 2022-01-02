@@ -1,25 +1,25 @@
-const logoutLink = document.getElementById('logout-link')
+const logoutLink = document.getElementById("logout-link");
 
 // Logout
 
-logoutLink.addEventListener('click', async function (ev) {
-  ev.preventDefault()
-  ev.stopPropagation()
-  
-  const endpoint = 'http://localhost:3000/logout';
+logoutLink.addEventListener("click", async function (ev) {
+	ev.preventDefault();
+	ev.stopPropagation();
 
-  try {
-    const res = await fetch(endpoint, {
-      method: "GET",
-      credentials: "include"
-    })
+	const endpoint = "https://sigerd-api.herokuapp.com/logout";
 
-    const data = await res.json()
+	try {
+		const res = await fetch(endpoint, {
+			method: "GET",
+			credentials: "include",
+		});
 
-    if(data.ok) {
-      window.location.href = '/login'
-    }
-  } catch(err) {
-    console.log(err)
-  }
-})
+		const data = await res.json();
+
+		if (data.ok) {
+			window.location.href = "/login";
+		}
+	} catch (err) {
+		console.log(err);
+	}
+});

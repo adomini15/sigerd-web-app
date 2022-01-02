@@ -1,55 +1,121 @@
 <aside id="menu" class="flex-shrink-0 p-3 shadow bg-white">
-  <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-    <span class="fs-5 fw-bold">SIGERD</span>
-  </a>
-  <ul class="list-unstyled ps-0">
-    <li class="mb-1">
-      <a class="nav-link active w-100 rounded collapsed" data-bs-toggle="collapse" data-bs-target="#students-collapse"
-        aria-expanded="true">
-        <span class="fas fa-users"></span> Registro Estudiantes
-      </a>
-      <div class="collapse mt-3" id="students-collapse">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-3 small d-flex flex-column">
-          <li><span class="far fa-plus-square m-3"></span> <a href="http://localhost:3001/student/create"
-              class="link-dark rounded">Nuevos
-              Estudiantes</a></li>
-          <li><span class="fas fa-pencil-alt m-3"></span> <a href="http://localhost:3001/enroll-student"
-              class="link-dark rounded">Inscripción
-              Estudiantes</a></li>
-          <li><span class="fas fa-table m-3"></span> <a href="http://localhost:3001/roll"
-              class="link-dark rounded">Relación Estudiantes</a></li>
-        </ul>
-      </div>
-    </li>
-    <li class="mb-1">
-      <a class="nav-link w-100 rounded collapsed" data-bs-toggle="collapse" data-bs-target="#course-collapse"
-        aria-expanded="false">
-        <span class="fas fa-graduation-cap"></span> Planeación Académica
-      </a>
-      <div class="collapse mt-3" id="course-collapse">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-3 small d-flex flex-column">
-          <li><span class="fas fa-chalkboard-teacher m-3"></span> <a href="http://localhost:3001/courses"
-              class="link-dark rounded">Generación de
-              cursos</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="border-top my-3"></li>
-    <li class="mb-1">
-      <a class="nav-link w-100 rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse"
-        aria-expanded="false">
-        <span class="fas fa-user-circle"></span> Cuenta
-      </a>
-      <div class="collapse mt-3" id="account-collapse">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-3 small d-flex flex-column">
-          <li><span class="fas fa-file m-3"></span> <a href="http://localhost:3001/profile"
-              class="link-dark rounded">Perfil</a></li>
-          <li><span class="fas fa-sign-out-alt m-3"></span> <a class="link-dark rounded" id="logout-link">Cerrar
-              Sesión</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+	<a
+		href="/"
+		class="
+			d-flex
+			align-items-center
+			pb-3
+			mb-3
+			link-dark
+			text-decoration-none
+			border-bottom
+		"
+	>
+		<span class="fs-5 fw-bold">SIGERD</span>
+	</a>
+	<ul class="list-unstyled ps-0">
+		<li class="mb-1">
+			<a
+				class="nav-link active w-100 rounded collapsed"
+				data-bs-toggle="collapse"
+				data-bs-target="#students-collapse"
+				aria-expanded="true"
+			>
+				<span class="fas fa-users"></span> Registro Estudiantes
+			</a>
+			<div class="collapse mt-3" id="students-collapse">
+				<ul
+					class="
+						btn-toggle-nav
+						list-unstyled
+						fw-normal
+						pb-3
+						small
+						d-flex
+						flex-column
+					"
+				>
+					<li>
+						<span class="far fa-plus-square m-3"></span>
+						<a href="/student/create" class="link-dark rounded"
+							>Nuevos Estudiantes</a
+						>
+					</li>
+					<li>
+						<span class="fas fa-pencil-alt m-3"></span>
+						<a href="/enroll-student" class="link-dark rounded"
+							>Inscripción Estudiantes</a
+						>
+					</li>
+					<li>
+						<span class="fas fa-table m-3"></span>
+						<a href="/roll" class="link-dark rounded">Relación Estudiantes</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li class="mb-1">
+			<a
+				class="nav-link w-100 rounded collapsed"
+				data-bs-toggle="collapse"
+				data-bs-target="#course-collapse"
+				aria-expanded="false"
+			>
+				<span class="fas fa-graduation-cap"></span> Planeación Académica
+			</a>
+			<div class="collapse mt-3" id="course-collapse">
+				<ul
+					class="
+						btn-toggle-nav
+						list-unstyled
+						fw-normal
+						pb-3
+						small
+						d-flex
+						flex-column
+					"
+				>
+					<li>
+						<span class="fas fa-chalkboard-teacher m-3"></span>
+						<a href="/courses" class="link-dark rounded"
+							>Generación de cursos</a
+						>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li class="border-top my-3"></li>
+		<li class="mb-1">
+			<a
+				class="nav-link w-100 rounded collapsed"
+				data-bs-toggle="collapse"
+				data-bs-target="#account-collapse"
+				aria-expanded="false"
+			>
+				<span class="fas fa-user-circle"></span> Cuenta
+			</a>
+			<div class="collapse mt-3" id="account-collapse">
+				<ul
+					class="
+						btn-toggle-nav
+						list-unstyled
+						fw-normal
+						pb-3
+						small
+						d-flex
+						flex-column
+					"
+				>
+					<li>
+						<span class="fas fa-file m-3"></span>
+						<a href="/profile" class="link-dark rounded">Perfil</a>
+					</li>
+					<li>
+						<span class="fas fa-sign-out-alt m-3"></span>
+						<a class="link-dark rounded" id="logout-link">Cerrar Sesión</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
 </aside>

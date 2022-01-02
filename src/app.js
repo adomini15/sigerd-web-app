@@ -55,7 +55,7 @@ app.get("/student/create", login, (req, res) => {
 });
 
 app.get("/student/:id/edit", login, async (req, res) => {
-	const endpoint = `http://localhost:3000/students/${req.params.id}`;
+	const endpoint = `https://sigerd-api.herokuapp.com/students/${req.params.id}`;
 
 	try {
 		const response = await fetch(endpoint);
@@ -64,7 +64,7 @@ app.get("/student/:id/edit", login, async (req, res) => {
 		if (student._id) {
 			res.render("edit-student", { title: "Edit Student", student });
 		} else {
-			res.redirect("http://localhost:3001/");
+			res.redirect("/");
 		}
 	} catch (error) {
 		console.log(error);
@@ -72,7 +72,7 @@ app.get("/student/:id/edit", login, async (req, res) => {
 });
 
 app.get("/roll", login, async (req, res) => {
-	const endpoint = `http://localhost:3000/courses`;
+	const endpoint = `https://sigerd-api.herokuapp.com/courses`;
 
 	try {
 		const response = await fetch(endpoint);
@@ -87,7 +87,7 @@ app.get("/roll", login, async (req, res) => {
 });
 
 app.get("/courses", login, async (req, res) => {
-	const endpoint = `http://localhost:3000/courses`;
+	const endpoint = `https://sigerd-api.herokuapp.com/courses`;
 
 	try {
 		const response = await fetch(endpoint);
