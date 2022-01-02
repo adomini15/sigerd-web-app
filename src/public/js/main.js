@@ -16,7 +16,7 @@ logoutLink.addEventListener("click", async function (ev) {
 
 		// const data = await res.json();
 
-		document.cookie = "";
+		document.cookie = `jwt = ; expires=${new Date()}`
 
 		// if (data.ok) {
 		window.location.href = "/login";
