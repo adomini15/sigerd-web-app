@@ -24,7 +24,8 @@ form.addEventListener("submit", async function (ev) {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			credentials: "same-origin",
+			credentials: "include",
+			mode: "cors",
 		});
 
 		const data = await res.json();
